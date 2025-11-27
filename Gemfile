@@ -74,3 +74,6 @@ gem 'rspec-rails', '~> 6.1'
 gem 'rubocop-rails', require: false
 gem 'rubocop-rspec', require: false
 
+group :test do
+  gem 'factory_bot_rails'
+end

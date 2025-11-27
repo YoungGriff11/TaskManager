@@ -2,9 +2,9 @@ AllCops:
   NewCops: enable
   TargetRubyVersion: 3.4
   Exclude:
-    - 'bin/'
+    - 'bin/*'
     - 'db/schema.rb'
-    - 'db/migrate/*'
+    - 'db/migrate/**'
 
 Rails:
   Enabled: true
