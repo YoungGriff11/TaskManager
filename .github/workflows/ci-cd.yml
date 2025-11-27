@@ -16,7 +16,7 @@ jobs:
           ruby-version: '3.4.6'
           bundler-cache: true
       - run: bundle install
-      - name: Run RuboCop
+      - name: RuboCop
         run: bundle exec rubocop --parallel
 
   test:
@@ -47,7 +47,7 @@ jobs:
         run: |
           bin/rails db:create
           bin/rails db:migrate
-          bundle exec rspec spec/models/user_spec.rb
+          bundle exec rspec
 
   deploy:
     needs: [lint, test]
