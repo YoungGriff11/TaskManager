@@ -87,8 +87,8 @@ Rails.application.configure do
   #
   # Skip DNS rebinding protection for the default health check endpoint.
   # config.host_authorization = { exclude: ->(request) { request.path == "/up" } }
-end
-config.after_initialize do
+
+  config.after_initialize do
   begin
     ActiveRecord::Base.connection_pool.disconnect!
     ActiveRecord::Base.establish_connection
@@ -101,3 +101,4 @@ end
 config.active_record.database_selector = { delay: 2 }
 config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
 config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
+end
