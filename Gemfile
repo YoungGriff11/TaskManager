@@ -70,3 +70,7 @@ end
 gem 'jwt'
 gem 'bcrypt'
 gem 'rubocop', require: false
+gem 'rspec-rails', '~> 6.1'
+gem 'rubocop-rails', require: false
+gem 'rubocop-rspec', require: false
+

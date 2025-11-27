@@ -113,6 +113,7 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
+    diff-lcs (1.6.2)
     dotenv (3.1.8)
     drb (2.2.3)
     ed25519 (1.4.0)
@@ -294,6 +295,23 @@ GEM
       actionpack (>= 7.0)
       railties (>= 7.0)
     rexml (3.4.4)
+    rspec-core (3.13.6)
+      rspec-support (~> 3.13.0)
+    rspec-expectations (3.13.5)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.13.0)
+    rspec-mocks (3.13.7)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.13.0)
+    rspec-rails (6.1.5)
+      actionpack (>= 6.1)
+      activesupport (>= 6.1)
+      railties (>= 6.1)
+      rspec-core (~> 3.13)
+      rspec-expectations (~> 3.13)
+      rspec-mocks (~> 3.13)
+      rspec-support (~> 3.13)
+    rspec-support (3.13.6)
     rubocop (1.81.6)
       json (~> 2.3)
       language_server-protocol (~> 3.17.0.2)
@@ -322,6 +340,9 @@ GEM
       rubocop (>= 1.72)
       rubocop-performance (>= 1.24)
       rubocop-rails (>= 2.30)
+    rubocop-rspec (3.8.0)
+      lint_roller (~> 1.1)
+      rubocop (~> 1.81)
     ruby-progressbar (1.13.0)
     rubyzip (3.2.1)
     sass-embedded (1.93.2-aarch64-linux-gnu)
@@ -429,8 +450,11 @@ DEPENDENCIES
   puma (>= 5.0)
   rack-cors
   rails (~> 8.0.3)
+  rspec-rails (~> 6.1)
   rubocop
+  rubocop-rails
   rubocop-rails-omakase
+  rubocop-rspec
   selenium-webdriver
   solid_cable
   solid_cache
