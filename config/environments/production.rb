@@ -97,8 +97,19 @@ Rails.application.configure do
   end
 end
 
-# Force Rails to use the DATABASE_URL from Render
-config.active_record.database_selector = { delay: 2 }
-config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
-config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
+  # ... all your existing config ...
+
+  config.after_initialize do
+    begin
+      ActiveRecord::Base.connection_pool.disconnect!
+      ActiveRecord::Base.establish_connection
+    rescue => e
+      Rails.logger.error "Database connection failed: #{e.message}"
+    end
+  end
+
+  # FIX FOR RENDER — NO READING REPLICA
+  config.active_record.reading_role = :writing
+  config.active_record.writing_role = :writing
+  config.active_record.database_selector = false
 end
